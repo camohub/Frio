@@ -1,0 +1,24 @@
+
+{block content}
+	<h1 n:block="title">My awesome eshop</h1>
+
+	<div n:inner-foreach="$products as $product" class="row">
+
+		<div class="col-xs-12 col-sm-6 col-md-4 product ">
+			<h2><a n:href="Products:detail $product->id">{$product->title}</a></h2>
+			<div>{$product->description}</div>
+			<div class="bottom">
+				<h3 class="price">
+					{number_format($product->price, 2)}eur
+					<a class="btn btn-primary addToCartBtn" n:href="Products:addToCart, id => $product->id">Pridať do košíka</a>
+				</h3>
+			</div>
+		</div>
+
+	</div>
+
+	<p class="paginator">
+		<a n:href="this, page => $page-1" n:if="$page > 1">‹ back</a>&nbsp;&nbsp;
+		<a n:href="this, page => $page+1" n:if="$iterations">next ›</a>
+	</p>
+{/block}

@@ -1,5 +1,5 @@
 html {
-    height: 100%;
+	height: 100%;
 }
 
 body {
@@ -13,19 +13,19 @@ body {
 }
 
 h1, h2 {
-    margin: 35px 0;
+	margin: 35px 0;
 }
 
 h1, h1 a {
-    color: #337ab7;
+	color: #337ab7;
 }
 
 h2, h2 a {
-    color: #007e5f;
+	color: #007e5f;
 }
 
 h3, h3 a {
-    color: #007658;
+	color: #007658;
 }
 
 a[href^="#error:"] {
@@ -52,9 +52,37 @@ form .error {
 	font-weight: bold;
 }
 
+.product {
+	height: 250px;
+	position: relative;
+	border: 1px solid transparent;
+}
+
+.product:hover {
+	border: 1px solid #125EAE;
+}
+
+.product .bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 14px;
+}
+
+.cartProduct:hover {
+	background-color: #f8f2e9;
+}
+
+@media screen and (min-width: 768px) {
+	.product {
+		height: 300px;
+	}
+}
+
 .paginator {
-    margin: 50px 14px;
-    text-align: center;
+	margin: 50px 14px;
+	text-align: center;
 }
 
 .footer {
@@ -62,17 +90,25 @@ form .error {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-    padding: 14px;
+	padding: 14px;
 	text-align: center;
 }
 
 .comments {
-    color: #75726c;
+	color: #75726c;
 }
 
+.mar-vert-7 { margin-top: 7px; margin-bottom: 7px; }
 .mar-vert-14 { margin-top: 14px; margin-bottom: 14px; }
 .mar-vert-25 { margin-top: 25px; margin-bottom: 25px; }
 .mar-vert-35 { margin-top: 35px; margin-bottom: 35px; }
 .mar-vert-50 { margin-top: 50px; margin-bottom: 50px; }
 
+.pad-vert-14 { padding-top: 14px; padding-bottom: 14px; }
+.pad-vert-25 { padding-top: 25px; padding-bottom: 25px; }
+.pad-vert-35 { padding-top: 35px; padding-bottom: 35px; }
+.pad-vert-50 { padding-top: 50px; padding-bottom: 50px; }
+
 .min-width-200 { min-width: 200px; }
+
+.disp-b { display: block; }
