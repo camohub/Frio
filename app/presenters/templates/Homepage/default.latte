@@ -6,14 +6,16 @@
 	<h1 n:block="title">My awesome blog</h1>
 
 	<div n:foreach="$posts as $post" class="post">
-		<div class="date">{$post->created_at|date:'F j, Y'}</div>
 
 		<h2><a n:href="Post:show $post->id">{$post->title}</a></h2>
 
 		<div>{$post->content}</div>
+
+		<div class="date"><small>{$post->created_at|date:'F j, Y'} by <b>{$post->user}</b></small></div>
 	</div>
 
-	<p><a n:href="this, page => $page-1" n:if="$page > 1">‹ back</a>
-		&nbsp;
-	<a n:href="this, page => $page+1" n:if="$iterations">next ›</a></p>
+	<p class="paginator">
+		<a n:href="this, page => $page-1" n:if="$page > 1">‹ back</a>&nbsp;&nbsp;
+		<a n:href="this, page => $page+1" n:if="$iterations">next ›</a>
+	</p>
 {/block}

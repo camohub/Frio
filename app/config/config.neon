@@ -14,6 +14,9 @@ session:
 security:
 	users:
 		admin: secret  # user 'admin', password 'secret'
+		fifi: fifi  # user 'fifi', password 'fifi'
+		kuko: kuko  # user 'kuko', password 'kuko'
+		mumu: mumu  # user 'mumu', password 'mumu'
 
 
 services:

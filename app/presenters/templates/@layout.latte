@@ -6,11 +6,47 @@
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Framework Micro-blog</title>
 
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<ul class="navig">
+
+<nav class="navbar navbar-default container">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Frio</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a n:href="Homepage:">Homepage</a></li>
+				{block navig}{/block}
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				{if $user->loggedIn}
+					<li><a n:href="Sign:out">Sign out</a></li>
+				{else}
+					<li><a n:href="Sign:in">Sign in</a></li>
+				{/if}
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+	{*<ul class="navig">
 		<li><a n:href="Homepage:">Homepage</a></li>
 		{block navig}{/block}
 		{if $user->loggedIn}
@@ -18,16 +54,24 @@
 		{else}
 			<li><a n:href="Sign:in">Sign in</a></li>
 		{/if}
-	</ul>
+	</ul>*}
 
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	<div n:if="count($flashes)" n:inner-foreach="$flashes as $flash" class="flash">
+		<div n:class="alert, alert-dismissible, fade, in, $flash->type == 'error' ? alert-danger : alert-success">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>{$flash->message}
+		</div>
+	</div>
 
 	{include content}
-
-	<p class="footer">This is a <a href="http://doc.nette.org/quickstart">Nette Framework Quick Start</a>.</p>
 
 	{block scripts}
 	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
 	{/block}
+</div>
+
+<div class="footer">This is a <a href="https://www.frio.sk/">Frio test page</a>.</div>
+
 </body>
 </html>

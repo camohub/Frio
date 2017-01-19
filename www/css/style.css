@@ -1,17 +1,31 @@
-body {
-	font: 16px/1.5 Georgia, Verdana, Arial;
-	margin: 0 auto;
-	width: 600px;
-	color: #333;
-	background-color: #fff;
+html {
+    height: 100%;
 }
 
-div.flash {
-	color: black;
-	background: #FFF9D7;
-	border: 1px solid #E2C822;
-	padding: 1em;
-	margin: 1em 0;
+body {
+	font: 16px/1.5 Verdana, Arial;
+	margin: 0 auto;
+	padding-bottom: 100px;
+	min-height: 100%;
+	color: #333;
+	background-color: #fff;
+	position: relative;
+}
+
+h1, h2 {
+    margin: 35px 0;
+}
+
+h1, h1 a {
+    color: #337ab7;
+}
+
+h2, h2 a {
+    color: #007e5f;
+}
+
+h3, h3 a {
+    color: #007658;
 }
 
 a[href^="#error:"] {
@@ -22,6 +36,7 @@ a[href^="#error:"] {
 form th, form td {
 	vertical-align: top;
 	font-weight: normal;
+	padding: 14px;
 }
 
 form th {
@@ -36,3 +51,28 @@ form .error {
 	color: #D00;
 	font-weight: bold;
 }
+
+.paginator {
+    margin: 50px 14px;
+    text-align: center;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+    padding: 14px;
+	text-align: center;
+}
+
+.comments {
+    color: #75726c;
+}
+
+.mar-vert-14 { margin-top: 14px; margin-bottom: 14px; }
+.mar-vert-25 { margin-top: 25px; margin-bottom: 25px; }
+.mar-vert-35 { margin-top: 35px; margin-bottom: 35px; }
+.mar-vert-50 { margin-top: 50px; margin-bottom: 50px; }
+
+.min-width-200 { min-width: 200px; }

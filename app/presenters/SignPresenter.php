@@ -16,16 +16,21 @@ class SignPresenter extends Nette\Application\UI\Presenter
 	protected function createComponentSignInForm()
 	{
 		$form = new Form;
+
 		$form->addText('username', 'Username:')
+			->setAttribute('class', 'form-control')
 			->setRequired('Please enter your username.');
 
 		$form->addPassword('password', 'Password:')
+			->setAttribute('class', 'form-control')
 			->setRequired('Please enter your password.');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('send', 'Sign in')
+			->setAttribute('class', 'btn btn-primary');
 
 		// call method signInFormSucceeded() on success
 		$form->onSuccess[] = [$this, 'signInFormSucceeded'];
+
 		return $form;
 	}
 
@@ -34,6 +39,7 @@ class SignPresenter extends Nette\Application\UI\Presenter
 	{
 		try {
 			$this->getUser()->login($values->username, $values->password);
+			$this->flashMessage('You have been logged in.', 'success');
 			$this->redirect('Homepage:');
 
 		} catch (Nette\Security\AuthenticationException $e) {
@@ -45,7 +51,7 @@ class SignPresenter extends Nette\Application\UI\Presenter
 	public function actionOut()
 	{
 		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
+		$this->flashMessage('You have been signed out.', 'success');
 		$this->redirect('Homepage:');
 	}
 
