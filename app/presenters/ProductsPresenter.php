@@ -48,7 +48,7 @@ class ProductsPresenter extends Nette\Application\UI\Presenter
 		} else {
 			unset($this->cartSession->products[$id]);
 		}
-		$this->flashMessage('Product count has been decreased in cart.', 'success');
+		$this->flashMessage('Products count have been decreased in cart.', 'success');
 		$this->redirect('Products:cart');
 	}
 
